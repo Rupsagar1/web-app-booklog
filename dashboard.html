@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Book Log</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <div class="user-info">
+                <h2>Welcome to  Book-Log😊</h2>
+            </div>
+            <button id="logout">Sign Out</button>
+        </div>
+        <header>
+            <h1>📚 Book-Log</h1>
+            <p>Share your reading journey</p>
+        </header>
+
+        <div id="notification" class="notification"></div>
+
+        <main>
+            <section class="add-book-section">
+                <h2 id="formTitle">Add New Book</h2>
+                <form id="bookForm">
+                    <input type="hidden" id="editIndex" value="">
+                    <div class="form-group">
+                        <input type="text" id="title" placeholder="Book Title" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="author" placeholder="Author" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="genre" required>
+                            <option value="">Select Genre</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="rating">
+                            <span>Rating:</span>
+                            <div class="stars">
+                                <input type="radio" id="star5" name="rating" value="5">
+                                <label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4">★</label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3">★</label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2">★</label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1">★</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" id="submitBtn">Add Book</button>
+                        <button type="button" id="cancelBtn" class="cancel-btn" style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="books-display">
+                <div class="books-header">
+                    <h2>Shared Books</h2>
+                    <div class="filter-section">
+                        <select id="filterGenre">
+                            <option value="all">All Genres</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="booksList" class="books-grid">
+                </div>
+            </section> 
+        </main>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        const chatbot = new Chatbot();
+    </script>
+</body>
+</html>
